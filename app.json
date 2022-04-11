@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "buddyGym",
+    "slug": "buddyGym",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
