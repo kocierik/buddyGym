@@ -18,9 +18,11 @@ const Theme = extendTheme({
     amber: {
       400: '#d97706',
     },
-    bgColor:{
-      default: "#000814",
-      textBase: "#ffc300"
+    erik:{
+      background: "#000914",
+      text: "#ffc300",
+      button: "#ffc300",
+      textButton: "#000814"
     }
   },
   config: {
