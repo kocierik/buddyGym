@@ -19,10 +19,10 @@ const Theme = extendTheme({
       400: '#d97706',
     },
     erik: {
-      background: '#ffffff',
-      text: '#06067a',
+      background: '#EEEEEE',
+      text: '#00092C',
       button: '#ffc300',
-      textButton: '#ffffff',
+      textButton: '#00092C',
       border: '#003566',
     },
   },

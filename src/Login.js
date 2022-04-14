@@ -69,7 +69,7 @@ const Login = () => {
           <Box alignItems={'center'}>
             <Button
               w={'40%'}
-              bg="erik.text"
+              bg="erik.button"
               _text={{ color: 'erik.textButton' }}
             >
               Continue
