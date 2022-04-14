@@ -2,7 +2,7 @@ import React from 'react'
 import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../assets/Allimages'
-// borderColor={"primary.900"}
+
 const Login = () => {
   const [show, setShow] = React.useState(false)
   return (
@@ -13,9 +13,8 @@ const Login = () => {
         md: '30%',
       }}
     >
-      
       <Box alignItems={'center'} p={11}>
-      <Image source={images.login} alt="Logo" height={100} width={100} />
+      <Image source={images.login} alt="Logo" height={120} width={"50%"} />
 
         <Text color="erik.text" fontSize="4xl" fontWeight={'bold'}>
           Login

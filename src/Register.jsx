@@ -3,7 +3,6 @@ import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../assets/Allimages'
 
-// borderColor={"primary.900"}
 const Register = () => {
   const [show, setShow] = React.useState(false)
   return (
@@ -15,7 +14,7 @@ const Register = () => {
       }}
     >
       <Box alignItems={'center'} p={11}>
-      <Image source={images.login} alt="Logo" height={100} width={100} />
+      <Image source={images.register} alt="Logo" height={120} width={"50%"} />
 
         <Text color="erik.text" fontSize="4xl" fontWeight={'bold'}>
           Register
@@ -81,7 +80,7 @@ const Register = () => {
             </Button>
           </Box>
           <Box alignItems={'center'}>
-            <Text color={'erik.text'} fontSize={'xs'} fontWeight={'bold'}>
+            <Text color={'erik.border'} fontSize={'xs'} fontWeight={'bold'}>
               Or Sign Up Using
             </Text>
           </Box>
