@@ -10,7 +10,6 @@ import {
 } from 'native-base'
 import Login from './src/Login'
 import Register from './src/Register'
-import images from './assets/Allimages'
 import Theme from './assets/colors'
 import { AntDesign, FontAwesome } from '@expo/vector-icons'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
@@ -24,12 +23,9 @@ export default function App() {
         fontFamily={'Montserrat-VariableFont_wght'}
       >
         <Box
-          flex={1.5}
-          alignItems={'center'}
-          justifyContent={'flex-end'}
-          padding={10}
+          flex={1}
+          padding={5}
         >
-          <Image source={images.login} alt="Logo" height={100} width={100} />
         </Box>
         <KeyboardAwareScrollView
           style={{ width: '100%' }}

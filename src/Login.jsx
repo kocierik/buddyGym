@@ -1,7 +1,7 @@
 import React from 'react'
-import { Input, Icon, Stack, Button, Box, Text } from 'native-base'
+import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
-
+import images from '../assets/Allimages'
 // borderColor={"primary.900"}
 const Login = () => {
   const [show, setShow] = React.useState(false)
@@ -13,17 +13,19 @@ const Login = () => {
         md: '30%',
       }}
     >
+      
       <Box alignItems={'center'} p={11}>
+      <Image source={images.login} alt="Logo" height={100} width={100} />
+
         <Text color="erik.text" fontSize="4xl" fontWeight={'bold'}>
-        Login
+          Login
         </Text>
       </Box>
       <Box padding={3} flexGrow={5}>
         <Stack space={5}>
           <Box alignItems={'flex-start'}>
             <Text color={'erik.text'} fontSize={'xs'}>
-              {' '}
-              Username{' '}
+              Username
             </Text>
             <Input
               w={'100%'}
@@ -45,8 +47,7 @@ const Login = () => {
           </Box>
           <Box alignItems={'flex-start'}>
             <Text color={'erik.text'} fontSize={'xs'} ml={'0.1rem'}>
-              {' '}
-              Password{' '}
+              Password
             </Text>
             <Input
               w={'100%'}
@@ -92,24 +93,9 @@ const Login = () => {
         flexDir={'row'}
         justifyContent={'space-evenly'}
       >
-        <AntDesign
-          name="facebook-square"
-          size={40}
-          color="black"
-          style={{ marginTop: '10%' }}
-        />
-        <FontAwesome
-          name="google"
-          size={40}
-          color="black"
-          style={{ marginTop: '10%' }}
-        />
-        <FontAwesome
-          name="twitter-square"
-          size={40}
-          color="black"
-          style={{ marginTop: '10%' }}
-        />
+        <AntDesign name="facebook-square" size={40} color="black" />
+        <FontAwesome name="google" size={40} color="black" />
+        <FontAwesome name="twitter-square" size={40} color="black" />
       </Box>
     </Stack>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
-import { Input, Icon, Stack, Button, Box, Text } from 'native-base'
+import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
+import images from '../assets/Allimages'
 
 // borderColor={"primary.900"}
 const Register = () => {
@@ -14,6 +15,8 @@ const Register = () => {
       }}
     >
       <Box alignItems={'center'} p={11}>
+      <Image source={images.login} alt="Logo" height={100} width={100} />
+
         <Text color="erik.text" fontSize="4xl" fontWeight={'bold'}>
           Register
         </Text>
@@ -22,8 +25,7 @@ const Register = () => {
         <Stack space={5}>
           <Box alignItems={'flex-start'}>
             <Text color={'erik.text'} fontSize={'xs'}>
-              {' '}
-              Username{' '}
+              Username
             </Text>
             <Input
               w={'100%'}
@@ -45,8 +47,7 @@ const Register = () => {
           </Box>
           <Box alignItems={'flex-start'}>
             <Text color={'erik.text'} fontSize={'xs'} ml={'0.1rem'}>
-              {' '}
-              Password{' '}
+              Password
             </Text>
             <Input
               w={'100%'}
