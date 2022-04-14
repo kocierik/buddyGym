@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "395545021100",
+    "project_id": "buddygym00",
+    "storage_bucket": "buddygym00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395545021100:android:2635849602a1de6810ad09",
+        "android_client_info": {
+          "package_name": "com.buddygym"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395545021100-j3ehmnpr56lfmonhjemvan9pna1lrt98.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqv8-RRNoFzniadlMCSGp063Sa8xr3q4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395545021100-j3ehmnpr56lfmonhjemvan9pna1lrt98.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

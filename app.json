@@ -7,10 +7,6 @@
     "android": {
       "googleServicesFile": "./google-services.json"
     },
-    "plugins": [
-      "@react-native-firebase/app",
-      "@react-native-firebase/perf",
-      "@react-native-firebase/crashlytics"
-    ]
+    "plugins": ["@react-native-firebase/app"]
   }
 }
