@@ -1,15 +1,16 @@
 import React from 'react'
 import { Input, Icon, Stack, Button, Box, Text } from 'native-base'
-import { MaterialIcons, AntDesign } from '@expo/vector-icons'
+import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
+
 // borderColor={"primary.900"}
 const Login = () => {
   const [show, setShow] = React.useState(false)
   return (
     <Stack
-      flexDir={'row'}
+      flexDir={'column'}
       w={{
-        base: '100%',
-        md: '35%',
+        base: '80%',
+        md: '30%',
       }}
     >
       <Box flex={1}> </Box>
@@ -65,12 +66,36 @@ const Login = () => {
               placeholder="Type your password"
             />
           </Box>
-          <Button bg="erik.text" _text={{ color: 'erik.textButton' }}>
-            Continue
-          </Button>
+          <Box alignItems={'center'}>
+            <Button
+              w={'40%'}
+              bg="erik.text"
+              _text={{ color: 'erik.textButton' }}
+            >
+              Continue
+            </Button>
+          </Box>
         </Stack>
       </Box>
-      <Box flex={1} flexGrow={1}></Box>
+      <Box
+        flex={1}
+        alignItems={'center'}
+        flexDir={'row'}
+        justifyContent={'center'}
+      >
+        <AntDesign
+          name="facebook-square"
+          size={30}
+          color="black"
+          style={{ padding: 5 }}
+        />
+        <FontAwesome
+          name="twitter-square"
+          size={30}
+          color="black"
+          style={{ padding: 5 }}
+        />
+      </Box>
     </Stack>
   )
 }

@@ -43,25 +43,6 @@ export default function App() {
             </Text>
             <Login />
           </Box>
-          <Box
-            flex={1}
-            alignItems={'center'}
-            flexDir={'row'}
-            justifyContent={'center'}
-          >
-            <AntDesign
-              name="facebook-square"
-              size={30}
-              color="black"
-              style={{ padding: 5 }}
-            />
-            <FontAwesome
-              name="twitter-square"
-              size={30}
-              color="black"
-              style={{ padding: 5 }}
-            />
-          </Box>
         </KeyboardAwareScrollView>
       </Box>
     </NativeBaseProvider>
