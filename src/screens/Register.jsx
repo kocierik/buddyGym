@@ -8,15 +8,6 @@ const Register = () => {
   const [name, setName] = React.useState('')
   const [password, setPassword] = React.useState('')
 
-  const getName = (e) => {
-    console.log(e)
-    setName(e)
-  }
-  const getPassword = (e) => {
-    console.log(e)
-    setPassword(e)
-  }
-
   return (
     <Stack
       flexDir={'column'}
@@ -54,7 +45,7 @@ const Register = () => {
                 />
               }
               placeholder="Type your username"
-              onChangeText={getName}
+              onChangeText={(e) => setName(e)}
               defaultValue={name}
             />
           </Box>
@@ -82,7 +73,7 @@ const Register = () => {
                 />
               }
               placeholder="Type your password"
-              onChangeText={getPassword}
+              onChangeText={(e) => setPassword(e)}
               defaultValue={password}
             />
           </Box>
