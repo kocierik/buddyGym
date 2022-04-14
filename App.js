@@ -19,23 +19,24 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={Theme}>
-      <KeyboardAwareScrollView
-        resetScrollToCoords={{ x: 0, y: 0 }}
-        scrollEnabled={false}
+      <Box
+        style={styles.container}
+        bg="erik.background"
+        fontFamily={'Montserrat-VariableFont_wght'}
       >
         <Box
-          style={styles.container}
-          bg="erik.background"
-          fontFamily={'Montserrat-VariableFont_wght'}
+          flex={2}
+          alignItems={'center'}
+          justifyContent={'flex-end'}
+          padding={10}
         >
-          <Box
-            flex={1}
-            alignItems={'center'}
-            justifyContent={'flex-end'}
-            padding={10}
-          >
-            <Image source={images.login} alt="Logo" height={100} width={100} />
-          </Box>
+          <Image source={images.login} alt="Logo" height={100} width={100} />
+        </Box>
+        <KeyboardAwareScrollView
+          style={{ width: '100%' }}
+          resetScrollToCoords={{ x: 0, y: 0 }}
+          scrollEnabled={false}
+        >
           <Box style={styles.content}>
             <Text color="erik.text" p={10} fontSize="4xl" fontWeight={'bold'}>
               Login
@@ -61,8 +62,8 @@ export default function App() {
               style={{ padding: 5 }}
             />
           </Box>
-        </Box>
-      </KeyboardAwareScrollView>
+        </KeyboardAwareScrollView>
+      </Box>
     </NativeBaseProvider>
   )
 }
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   content: {
-    flex: 3,
+    flex: 7,
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
