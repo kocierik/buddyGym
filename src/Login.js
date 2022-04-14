@@ -13,7 +13,6 @@ const Login = () => {
         md: '30%',
       }}
     >
-      <Box flex={1}> </Box>
       <Box padding={5} flexGrow={5}>
         <Stack space={5}>
           <Box alignItems={'flex-start'}>

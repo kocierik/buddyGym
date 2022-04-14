@@ -25,7 +25,7 @@ export default function App() {
         fontFamily={'Montserrat-VariableFont_wght'}
       >
         <Box
-          flex={2}
+          flex={1.5}
           alignItems={'center'}
           justifyContent={'flex-end'}
           padding={10}
