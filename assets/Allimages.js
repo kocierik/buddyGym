@@ -1,5 +1,4 @@
 export default {
-  login: require('./login.png'),
-  register: require('./register.png'),
-  // import all other images
+  login: require('./img/login.png'),
+  register: require('./img/register.png'),
 }

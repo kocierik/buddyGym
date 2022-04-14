@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { StyleSheet } from 'react-native'
 import {
   NativeBaseProvider,
@@ -8,9 +8,9 @@ import {
   Container,
   Image,
 } from 'native-base'
-import Login from './src/Login'
-import Register from './src/Register'
-import Theme from './assets/colors'
+import Login from './screens/Login'
+import Register from './screens/Register'
+import Theme from '../assets/colors'
 import { AntDesign, FontAwesome } from '@expo/vector-icons'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
@@ -22,11 +22,7 @@ export default function App() {
         bg="erik.background"
         fontFamily={'Montserrat-VariableFont_wght'}
       >
-        <Box
-          flex={1}
-          padding={5}
-        >
-        </Box>
+        <Box flex={1} padding={5}></Box>
         <KeyboardAwareScrollView
           style={{ width: '100%' }}
           resetScrollToCoords={{ x: 0, y: 0 }}

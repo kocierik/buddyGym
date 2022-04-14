@@ -1,7 +1,6 @@
 import { extendTheme } from 'native-base'
 const Theme = extendTheme({
   colors: {
-    // Add new color
     primary: {
       50: '#E3F2F9',
       100: '#C5E4F3',
@@ -14,10 +13,6 @@ const Theme = extendTheme({
       800: '#005885',
       900: '#003F5E',
     },
-    // Redefinig only one shade, rest of the color will remain same.
-    amber: {
-      400: '#d97706',
-    },
     erik: {
       background: '#EEEEEE',
       text: '#00092C',
@@ -25,10 +20,6 @@ const Theme = extendTheme({
       textButton: '#00092C',
       border: '#003566',
     },
-  },
-  config: {
-    // Changing initialColorMode to 'dark'
-    initialColorMode: 'dark',
   },
   font: {
     fontFamily: "'Montserrat', sans-serif",
