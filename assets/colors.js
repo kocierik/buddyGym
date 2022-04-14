@@ -29,6 +29,9 @@ const Theme = extendTheme({
     // Changing initialColorMode to 'dark'
     initialColorMode: 'dark',
   },
+  font: {
+    fontFamily: "'Montserrat', sans-serif",
+  },
 });
 
 export default Theme
