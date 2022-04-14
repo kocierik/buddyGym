@@ -12,7 +12,7 @@ const Theme = extendTheme({
       600: '#007AB8',
       700: '#006BA1',
       800: '#005885',
-      900: '#003F5E',
+      900: '#003F5E', 
     },
     // Redefinig only one shade, rest of the color will remain same.
     amber: {
@@ -22,7 +22,8 @@ const Theme = extendTheme({
       background: "#000914",
       text: "#ffc300",
       button: "#ffc300",
-      textButton: "#000814"
+      textButton: "#000814",
+      border: "#003566"
     }
   },
   config: {
