@@ -3,7 +3,7 @@ import { Input, Icon, Stack, Button, Box, Text } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 
 // borderColor={"primary.900"}
-const Login = () => {
+const Register = () => {
   const [show, setShow] = React.useState(false)
   return (
     <Stack
@@ -15,7 +15,7 @@ const Login = () => {
     >
       <Box alignItems={'center'} p={1}>
         <Text color="erik.text" fontSize="4xl" fontWeight={'bold'}>
-          Login
+          Register
         </Text>
       </Box>
       <Box padding={5} flexGrow={5}>
@@ -104,4 +104,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register

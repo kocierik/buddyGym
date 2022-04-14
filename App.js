@@ -9,14 +9,13 @@ import {
   Image,
 } from 'native-base'
 import Login from './src/Login'
+import Register from './src/Register'
 import images from './assets/Allimages'
 import Theme from './assets/colors'
 import { AntDesign, FontAwesome } from '@expo/vector-icons'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default function App() {
-  // https://coolors.co/palette/000814-001d3d-003566-ffc300-ffd60a PALETTE
-
   return (
     <NativeBaseProvider theme={Theme}>
       <Box
@@ -38,10 +37,7 @@ export default function App() {
           scrollEnabled={false}
         >
           <Box style={styles.content}>
-            <Text color="erik.text" p={10} fontSize="4xl" fontWeight={'bold'}>
-              Login
-            </Text>
-            <Login />
+            <Register />
           </Box>
         </KeyboardAwareScrollView>
       </Box>
