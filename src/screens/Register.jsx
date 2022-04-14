@@ -5,6 +5,18 @@ import images from '../../assets/Allimages'
 
 const Register = () => {
   const [show, setShow] = React.useState(false)
+  const [name, setName] = React.useState('')
+  const [password, setPassword] = React.useState('')
+
+  const getName = (e) => {
+    console.log(e)
+    setName(e)
+  }
+  const getPassword = (e) => {
+    console.log(e)
+    setPassword(e)
+  }
+
   return (
     <Stack
       flexDir={'column'}
@@ -42,6 +54,8 @@ const Register = () => {
                 />
               }
               placeholder="Type your username"
+              onChangeText={getName}
+              defaultValue={name}
             />
           </Box>
           <Box alignItems={'flex-start'}>
@@ -68,6 +82,8 @@ const Register = () => {
                 />
               }
               placeholder="Type your password"
+              onChangeText={getPassword}
+              defaultValue={password}
             />
           </Box>
           <Box alignItems={'center'}>

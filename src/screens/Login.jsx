@@ -75,6 +75,7 @@ const Login = () => {
               w={'40%'}
               bg="erik.button"
               _text={{ color: 'erik.textButton' }}
+              colorScheme={'cyan'}
             >
               Continue
             </Button>

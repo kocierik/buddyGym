@@ -29,7 +29,7 @@ export default function App() {
           scrollEnabled={false}
         >
           <Box style={styles.content}>
-            <Login />
+            <Register />
           </Box>
         </KeyboardAwareScrollView>
       </Box>
