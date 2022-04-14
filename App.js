@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StyleSheet  } from 'react-native'
-import GlobalFont from 'react-native-global-font'
 import { NativeBaseProvider, Text, Box, Center, Container, Image } from 'native-base';
 import Login  from './src/Login'
 import images from "./assets/Allimages"
@@ -14,11 +13,11 @@ export default function App() {
   return (
     <NativeBaseProvider theme={Theme} >
       <Box style={styles.container} bg="erik.background" fontFamily={"Montserrat-VariableFont_wght"}>
-        <Box flex={1} alignItems={"center"} justifyContent={"flex-end"}>
+        <Box flex={1} alignItems={"center"} justifyContent={"flex-end"}  padding={10}>
                 <Image source={images.login} alt="Logo" height={100} width={100}/>
         </Box>
-        <Box style={styles.content} width={"100%"}>
-          <Text color="erik.text" p={10} fontSize="4xl" fontWeight={"light"} >Login</Text>
+        <Box style={styles.content} >
+          <Text color="erik.text" p={10} fontSize="4xl" fontWeight={"bold"} >Login</Text>
           <Login />
         </Box>
       </Box>
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({
     width:"100%",
   },
   content: {
-    flex: 2,
+    flex: 3,
     justifyContent:"flex-start",
     alignItems:"center",
   },
