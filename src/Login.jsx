@@ -13,12 +13,12 @@ const Login = () => {
         md: '30%',
       }}
     >
-      <Box alignItems={'center'} p={1}>
+      <Box alignItems={'center'} p={11}>
         <Text color="erik.text" fontSize="4xl" fontWeight={'bold'}>
-          Login
+        Login
         </Text>
       </Box>
-      <Box padding={5} flexGrow={5}>
+      <Box padding={3} flexGrow={5}>
         <Stack space={5}>
           <Box alignItems={'flex-start'}>
             <Text color={'erik.text'} fontSize={'xs'}>
@@ -79,25 +79,36 @@ const Login = () => {
               Continue
             </Button>
           </Box>
+          <Box alignItems={'center'}>
+            <Text color={'erik.text'} fontSize={'xs'} fontWeight={'bold'}>
+              Or Sign In Using
+            </Text>
+          </Box>
         </Stack>
       </Box>
       <Box
         flex={1}
         alignItems={'center'}
         flexDir={'row'}
-        justifyContent={'center'}
+        justifyContent={'space-evenly'}
       >
         <AntDesign
           name="facebook-square"
-          size={30}
+          size={40}
           color="black"
-          style={{ padding: 5 }}
+          style={{ marginTop: '10%' }}
+        />
+        <FontAwesome
+          name="google"
+          size={40}
+          color="black"
+          style={{ marginTop: '10%' }}
         />
         <FontAwesome
           name="twitter-square"
-          size={30}
+          size={40}
           color="black"
-          style={{ padding: 5 }}
+          style={{ marginTop: '10%' }}
         />
       </Box>
     </Stack>

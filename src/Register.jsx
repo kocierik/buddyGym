@@ -79,25 +79,36 @@ const Register = () => {
               Continue
             </Button>
           </Box>
+          <Box alignItems={'center'}>
+            <Text color={'erik.text'} fontSize={'xs'} fontWeight={'bold'}>
+              Or Sign Up Using
+            </Text>
+          </Box>
         </Stack>
       </Box>
       <Box
         flex={1}
         alignItems={'center'}
         flexDir={'row'}
-        justifyContent={'center'}
+        justifyContent={'space-evenly'}
       >
         <AntDesign
           name="facebook-square"
-          size={30}
-          color="black" 
-          style={{ padding: 5, marginTop: "10%"}}
+          size={40}
+          color="black"
+          style={{ marginTop: '10%' }}
+        />
+        <FontAwesome
+          name="google"
+          size={40}
+          color="black"
+          style={{ marginTop: '10%' }}
         />
         <FontAwesome
           name="twitter-square"
-          size={30}
+          size={40}
           color="black"
-          style={{ padding: 5, marginTop: "10%"}}
+          style={{ marginTop: '10%' }}
         />
       </Box>
     </Stack>
