@@ -13,12 +13,12 @@ const Register = () => {
         md: '30%',
       }}
     >
-      <Box alignItems={'center'} p={1}>
+      <Box alignItems={'center'} p={11}>
         <Text color="erik.text" fontSize="4xl" fontWeight={'bold'}>
           Register
         </Text>
       </Box>
-      <Box padding={5} flexGrow={5}>
+      <Box padding={3} flexGrow={5}>
         <Stack space={5}>
           <Box alignItems={'flex-start'}>
             <Text color={'erik.text'} fontSize={'xs'}>
@@ -90,14 +90,14 @@ const Register = () => {
         <AntDesign
           name="facebook-square"
           size={30}
-          color="black"
-          style={{ padding: 5 }}
+          color="black" 
+          style={{ padding: 5, marginTop: "10%"}}
         />
         <FontAwesome
           name="twitter-square"
           size={30}
           color="black"
-          style={{ padding: 5 }}
+          style={{ padding: 5, marginTop: "10%"}}
         />
       </Box>
     </Stack>
