@@ -10,7 +10,8 @@ const Login = () => {
       flexDir={'column'}
       w={{
         base: '80%',
-        md: '30%',
+        md: '50%',
+        xl: '40%',
       }}
     >
       <Box alignItems={'center'} p={11}>
