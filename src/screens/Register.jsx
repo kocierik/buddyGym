@@ -3,20 +3,24 @@ import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../../assets/Allimages'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-
+import firestore from 'firebase/firestore'
+import { createUserProfileDocument } from '../db/firebase'
 const Register = () => {
   const [show, setShow] = React.useState(false)
   const [name, setName] = React.useState('')
   const [password, setPassword] = React.useState('')
 
   const auth = getAuth()
-  const signUp = () => {
-    createUserWithEmailAndPassword(auth, name, password)
-      .then((userCredential) => {
+
+  const signUp = async () => {
+    await createUserWithEmailAndPassword(auth, name, password)
+      .then(async (userCredential) => {
         // Signed in
         console.log(userCredential)
         const user = userCredential.user
-        // ...
+
+        await createUserProfileDocument(user)
+        firestore.doc(`users/${user.uid}`)
       })
       .catch((error) => {
         const errorCode = error.code

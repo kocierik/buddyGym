@@ -18,3 +18,31 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
+
+export const createUserProfileDocument = async (user, additionalData) => {
+  if (!user) return
+  console.log(user)
+  // get the reference where the data can might be
+  const userRef = firestore.doc(`users/${user.id}`)
+
+  // fetch document location
+  const snapshot = await userRef.get()
+  if (!snapshot.exists) {
+    const { id, email, country } = user
+    const createAt = new Date()
+    try {
+      await userRef.set({
+        id,
+        email,
+        country,
+        createAt,
+        // photoURL,
+        ...additionalData,
+      })
+    } catch (error) {
+      console.log('errore nella creazione', error)
+    }
+  }
+  // eslint-disable-next-line consistent-return
+  return getUserDocument(user.uid)
+}
