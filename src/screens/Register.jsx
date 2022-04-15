@@ -2,18 +2,35 @@ import React from 'react'
 import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../../assets/Allimages'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 
 const Register = () => {
   const [show, setShow] = React.useState(false)
   const [name, setName] = React.useState('')
   const [password, setPassword] = React.useState('')
 
+  const auth = getAuth()
+  const signUp = () => {
+    createUserWithEmailAndPassword(auth, name, password)
+      .then((userCredential) => {
+        // Signed in
+        console.log(userCredential)
+        const user = userCredential.user
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+        // ..
+      })
+  }
   return (
     <Stack
       flexDir={'column'}
       w={{
         base: '80%',
-        md: '30%',
+        md: '50%',
+        xl: '40%',
       }}
     >
       <Box alignItems={'center'} p={11}>
@@ -82,6 +99,7 @@ const Register = () => {
               w={'40%'}
               bg="erik.button"
               _text={{ color: 'erik.textButton' }}
+              onPress={signUp}
             >
               Continue
             </Button>

@@ -11,15 +11,15 @@ const Login = () => {
   const auth = getAuth()
 
   const signIn = async () => {
-    await signInWithEmailAndPassword(auth, name, password).catch(function (
-      error
-    ) {
-      // Handle Errors here.
-      var errorCode = error.code
-      var errorMessage = error.message
-      // ...
-      alert(errorMessage)
-    })
+    await signInWithEmailAndPassword(auth, name, password)
+      .then(() => console.log('loggato'))
+      .catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code
+        var errorMessage = error.message
+        // ...
+        alert(errorMessage)
+      })
   }
 
   return (
