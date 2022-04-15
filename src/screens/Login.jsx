@@ -2,9 +2,26 @@ import React from 'react'
 import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../../assets/Allimages'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
 const Login = () => {
   const [show, setShow] = React.useState(false)
+  const [name, setName] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const auth = getAuth()
+
+  const signIn = async () => {
+    await signInWithEmailAndPassword(auth, name, password).catch(function (
+      error
+    ) {
+      // Handle Errors here.
+      var errorCode = error.code
+      var errorMessage = error.message
+      // ...
+      alert(errorMessage)
+    })
+  }
+
   return (
     <Stack
       flexDir={'column'}
@@ -43,6 +60,8 @@ const Login = () => {
                 />
               }
               placeholder="Type your username"
+              onChangeText={(e) => setName(e)}
+              defaultValue={name}
             />
           </Box>
           <Box alignItems={'flex-start'}>
@@ -69,6 +88,8 @@ const Login = () => {
                 />
               }
               placeholder="Type your password"
+              onChangeText={(e) => setPassword(e)}
+              defaultValue={password}
             />
           </Box>
           <Box alignItems={'center'}>
@@ -77,6 +98,7 @@ const Login = () => {
               bg="erik.button"
               _text={{ color: 'erik.textButton' }}
               colorScheme={'cyan'}
+              onPress={signIn}
             >
               Continue
             </Button>

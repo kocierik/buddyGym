@@ -13,8 +13,8 @@ import Register from './screens/Register'
 import Theme from '../assets/colors'
 import { AntDesign, FontAwesome } from '@expo/vector-icons'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-// import auth from '@react-native-firebase/auth'
-import { initializeApp } from 'firebase/app'
+import './db/firebase'
+
 export default function App() {
   return (
     <NativeBaseProvider theme={Theme}>
