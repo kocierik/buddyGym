@@ -5770,7 +5770,7 @@ open@^6.2.0:
   dependencies:
     is-wsl "^1.1.0"
 
-opencollective-postinstall@^2.0.1:
+opencollective-postinstall@^2.0.0, opencollective-postinstall@^2.0.1:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.3.tgz#7a0fff978f6dbfa4d006238fbac98ed4198c3259"
   integrity sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==
@@ -6091,6 +6091,14 @@ react-native-codegen@^0.0.6:
     flow-parser "^0.121.0"
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
+
+react-native-firebase@~5.4.0:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/react-native-firebase/-/react-native-firebase-5.4.3.tgz#3c14c0f72b5593bb3aa4f91e417cbf459b60f15c"
+  integrity sha512-JnE4IK/NuST+QfgzlCKtHtjpjPcLYB2/us2YnK2jGGNeCRwARWbNUPgATLkkPAJYqRIfjxXBadqBabrVsXGCVw==
+  dependencies:
+    opencollective-postinstall "^2.0.0"
+    prop-types "^15.6.2"
 
 react-native-global-props@^1.1.5:
   version "1.1.5"

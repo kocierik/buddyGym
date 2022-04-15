@@ -9,9 +9,9 @@ require 'json'
 podfile_properties = JSON.parse(File.read('./Podfile.properties.json')) rescue {}
 
 target 'buddyGym' do
+  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
   use_expo_modules!
   config = use_native_modules!
-
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => podfile_properties['expo.jsEngine'] == 'hermes'

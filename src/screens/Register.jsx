@@ -2,32 +2,36 @@ import React from 'react'
 import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../../assets/Allimages'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-import firestore from 'firebase/firestore'
+// import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+// import firestore from '@react-native-firebase/firestore'
+import auth from '@react-native-firebase/auth'
+// import firestore from '@react-native-firebase/firestore'
+
 import { createUserProfileDocument } from '../db/firebase'
 const Register = () => {
   const [show, setShow] = React.useState(false)
   const [name, setName] = React.useState('')
   const [password, setPassword] = React.useState('')
 
-  const auth = getAuth()
+  // const auth = getAuth()
+  // const firestore = firebase.firestore()
+  const signUp = () => {}
+  // const signUp = async () => {
+  //   await createUserWithEmailAndPassword(auth, name, password)
+  //     .then(async (userCredential) => {
+  //       // Signed in
+  //       console.log(userCredential)
+  //       const user = userCredential.user
 
-  const signUp = async () => {
-    await createUserWithEmailAndPassword(auth, name, password)
-      .then(async (userCredential) => {
-        // Signed in
-        console.log(userCredential)
-        const user = userCredential.user
-
-        await createUserProfileDocument(user)
-        firestore.doc(`users/${user.uid}`)
-      })
-      .catch((error) => {
-        const errorCode = error.code
-        const errorMessage = error.message
-        // ..
-      })
-  }
+  //       await createUserProfileDocument(user)
+  //       firestore.doc(`users/${user.uid}`)
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code
+  //       const errorMessage = error.message
+  //       // ..
+  //     })
+  // }
   return (
     <Stack
       flexDir={'column'}
