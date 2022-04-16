@@ -13,11 +13,13 @@ const Register = () => {
   const [password, setPassword] = React.useState('')
 
   const auth = getAuth()
+  // const firestore = firebase.firestore()
+  // const signUp = () => {}
   const signUp = async () => {
     const id = await (
       await createUserWithEmailAndPassword(auth, name, password)
     ).user.uid
-
+    console.log(auth.currentUser.uid)
     // Signed in
     const dataUser = {
       id: id,
@@ -42,7 +44,16 @@ const Register = () => {
       }}
     >
       <Box alignItems={'center'} p={11}>
-        <Image source={images.register} alt="Logo" height={155} width={'50%'} />
+        <Image
+          source={images.register}
+          alt="Logo"
+          height={155}
+          w={{
+            base: '80%',
+            md: '50%',
+            xl: '40%',
+          }}
+        />
 
         <Text color="erik.text" fontSize="4xl" fontWeight={'bold'}>
           Register
