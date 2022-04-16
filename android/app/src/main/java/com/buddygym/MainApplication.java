@@ -22,6 +22,8 @@ import java.util.List;
 
 import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;
 import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
+import io.invertase.firebase.firestore.ReactNativeFirebaseFirestorePackage;
+
 
 public class MainApplication extends Application implements ReactApplication {
   private final ReactNativeHost mReactNativeHost = new ReactNativeHostWrapper(
@@ -39,6 +41,7 @@ public class MainApplication extends Application implements ReactApplication {
         return Arrays.asList(
           new MainReactPackage(),
           new ReactNativeFirebaseAuthPackage(),
+          new ReactNativeFirebaseFirestorePackage(),
       }
       // Packages that cannot be autolinked yet can be added manually here, for example:
       // packages.add(new MyReactNativePackage());

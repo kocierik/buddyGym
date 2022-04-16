@@ -2,36 +2,36 @@ import React from 'react'
 import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../../assets/Allimages'
-// import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 // import firestore from '@react-native-firebase/firestore'
-import auth from '@react-native-firebase/auth'
-// import firestore from '@react-native-firebase/firestore'
-
+// import auth from '@react-native-firebase/auth'
+import { fs as firebase } from '../db/firebase'
 import { createUserProfileDocument } from '../db/firebase'
 const Register = () => {
   const [show, setShow] = React.useState(false)
   const [name, setName] = React.useState('')
   const [password, setPassword] = React.useState('')
 
-  // const auth = getAuth()
-  // const firestore = firebase.firestore()
-  const signUp = () => {}
-  // const signUp = async () => {
-  //   await createUserWithEmailAndPassword(auth, name, password)
-  //     .then(async (userCredential) => {
-  //       // Signed in
-  //       console.log(userCredential)
-  //       const user = userCredential.user
+  const auth = getAuth()
+  const signUp = async () => {
+    const id = await (
+      await createUserWithEmailAndPassword(auth, name, password)
+    ).user.uid
 
-  //       await createUserProfileDocument(user)
-  //       firestore.doc(`users/${user.uid}`)
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code
-  //       const errorMessage = error.message
-  //       // ..
-  //     })
-  // }
+    // Signed in
+    const dataUser = {
+      id: id,
+      email: name,
+      password: password,
+    }
+    console.log(dataUser)
+
+    await createUserProfileDocument(dataUser).catch((error) => {
+      const errorCode = error.code
+      const errorMessage = error.message
+      console.log('errorMessage:' + errorCode + ' : ' + errorMessage)
+    })
+  }
   return (
     <Stack
       flexDir={'column'}
@@ -42,7 +42,7 @@ const Register = () => {
       }}
     >
       <Box alignItems={'center'} p={11}>
-        <Image source={images.register} alt="Logo" height={120} width={'50%'} />
+        <Image source={images.register} alt="Logo" height={155} width={'50%'} />
 
         <Text color="erik.text" fontSize="4xl" fontWeight={'bold'}>
           Register

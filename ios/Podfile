@@ -9,7 +9,6 @@ require 'json'
 podfile_properties = JSON.parse(File.read('./Podfile.properties.json')) rescue {}
 
 target 'buddyGym' do
-  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
   use_expo_modules!
   config = use_native_modules!
   use_react_native!(
@@ -48,4 +47,6 @@ target 'buddyGym' do
     end
   end
 
+  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
+  pod 'RNFBFirestore', :path => '../node_modules/@react-native-firebase/firestore'
 end

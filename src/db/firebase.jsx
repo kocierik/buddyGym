@@ -1,5 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
+import { getFirestore, setDoc, doc } from 'firebase/firestore'
+
 import { getAnalytics } from 'firebase/analytics'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,31 +20,20 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
+const firestore = getFirestore()
 
-// export const createUserProfileDocument = async (user, additionalData) => {
-//   if (!user) return
-//   console.log(user)
-//   // get the reference where the data can might be
-//   const userRef = firestore.doc(`users/${user.id}`)
-
-//   // fetch document location
-//   const snapshot = await userRef.get()
-//   if (!snapshot.exists) {
-//     const { id, email, country } = user
-//     const createAt = new Date()
-//     try {
-//       await userRef.set({
-//         id,
-//         email,
-//         country,
-//         createAt,
-//         // photoURL,
-//         ...additionalData,
-//       })
-//     } catch (error) {
-//       console.log('errore nella creazione', error)
-//     }
-//   }
-//   // eslint-disable-next-line consistent-return
-//   return getUserDocument(user.uid)
-// }
+export const createUserProfileDocument = async (user) => {
+  if (!user) return
+  console.log(user)
+  const createAt = new Date()
+  await setDoc(doc(firestore, 'users', user.id), {
+    uid: user.id,
+    email: user.email,
+    createAt: createAt,
+  })
+    .then(() => console.log('AGGIUNTO'))
+    .catch((error) => {
+      const messageCode = error.message
+      console.log(messageCode)
+    })
+}
