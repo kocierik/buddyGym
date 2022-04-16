@@ -32,7 +32,16 @@ const Login = () => {
       }}
     >
       <Box alignItems={'center'} p={11}>
-        <Image source={images.login} alt="Logo" height={120} width={'50%'} />
+        <Image
+          source={images.login}
+          alt="Logo"
+          height={155}
+          w={{
+            base: '80%',
+            md: '50%',
+            xl: '40%',
+          }}
+        />
 
         <Text color="erik.text" fontSize="4xl" fontWeight={'bold'}>
           Login
@@ -116,9 +125,24 @@ const Login = () => {
         flexDir={'row'}
         justifyContent={'space-evenly'}
       >
-        <AntDesign name="facebook-square" size={40} color="black" />
-        <FontAwesome name="google" size={40} color="black" />
-        <FontAwesome name="twitter-square" size={40} color="black" />
+        <AntDesign
+          name="facebook-square"
+          size={40}
+          color="black"
+          style={{ marginTop: '10%' }}
+        />
+        <FontAwesome
+          name="google"
+          size={40}
+          color="black"
+          style={{ marginTop: '10%' }}
+        />
+        <FontAwesome
+          name="twitter-square"
+          size={40}
+          color="black"
+          style={{ marginTop: '10%' }}
+        />
       </Box>
     </Stack>
   )

@@ -136,24 +136,9 @@ const Register = () => {
         flexDir={'row'}
         justifyContent={'space-evenly'}
       >
-        <AntDesign
-          name="facebook-square"
-          size={40}
-          color="black"
-          style={{ marginTop: '10%' }}
-        />
-        <FontAwesome
-          name="google"
-          size={40}
-          color="black"
-          style={{ marginTop: '10%' }}
-        />
-        <FontAwesome
-          name="twitter-square"
-          size={40}
-          color="black"
-          style={{ marginTop: '10%' }}
-        />
+        <AntDesign name="facebook-square" size={40} color="black" />
+        <FontAwesome name="google" size={40} color="black" />
+        <FontAwesome name="twitter-square" size={40} color="black" />
       </Box>
     </Stack>
   )
