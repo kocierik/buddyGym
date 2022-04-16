@@ -3,9 +3,6 @@ import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../../assets/Allimages'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-// import firestore from '@react-native-firebase/firestore'
-// import auth from '@react-native-firebase/auth'
-import { fs as firebase } from '../db/firebase'
 import { createUserProfileDocument } from '../db/firebase'
 const Register = () => {
   const [show, setShow] = React.useState(false)
@@ -15,25 +12,22 @@ const Register = () => {
   const auth = getAuth()
 
   const signUp = async () => {
-    // const dataUser = await createUserWithEmailAndPassword(
-    //   auth,
-    //   name,
-    //   password
-    // ).catch((error) => {
-    //   console.log('errorMessage:' + error.message)
-    //   setError(error.message)
-    // })
-    // console.log(dataUser)
-    const dataUser = {
-      uid: auth.currentUser.uid,
-      email: name,
-    }
+    const dataUser = await createUserWithEmailAndPassword(
+      auth,
+      name,
+      password
+    ).catch(() => setError('Verify that the email is not already in use'))
+    // Signed in
+    console.log(dataUser)
 
-    await createUserProfileDocument(dataUser).catch((error) => {
-      // console.log('errorMessage:' + errorCode + ' : ' + errorMessage)
-      setError(error.message)
+    await createUserProfileDocument(dataUser.user).catch((error) => {
+      const errorCode = error.code
+      const errorMessage = error.message
+      console.log('errorMessage:' + errorCode + ' : ' + errorMessage)
+      setError('Unknown error')
     })
   }
+
   return (
     <Stack
       flexDir={'column'}
@@ -122,7 +116,11 @@ const Register = () => {
             >
               Continue
             </Button>
-            {error && <Text color={'white'}> Error: {error} </Text>}
+            {error && (
+              <Text color={'#eb3455'} mt={3}>
+                {error}
+              </Text>
+            )}
           </Box>
           <Box alignItems={'center'}>
             <Text color={'erik.border'} fontSize={'xs'} fontWeight={'bold'}>
