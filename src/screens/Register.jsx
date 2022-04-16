@@ -11,27 +11,27 @@ const Register = () => {
   const [show, setShow] = React.useState(false)
   const [name, setName] = React.useState('')
   const [password, setPassword] = React.useState('')
-
+  const [error, setError] = React.useState('')
   const auth = getAuth()
-  // const firestore = firebase.firestore()
-  // const signUp = () => {}
+
   const signUp = async () => {
-    const id = await (
-      await createUserWithEmailAndPassword(auth, name, password)
-    ).user.uid
-    console.log(auth.currentUser.uid)
-    // Signed in
+    // const dataUser = await createUserWithEmailAndPassword(
+    //   auth,
+    //   name,
+    //   password
+    // ).catch((error) => {
+    //   console.log('errorMessage:' + error.message)
+    //   setError(error.message)
+    // })
+    // console.log(dataUser)
     const dataUser = {
-      id: id,
+      uid: auth.currentUser.uid,
       email: name,
-      password: password,
     }
-    console.log(dataUser)
 
     await createUserProfileDocument(dataUser).catch((error) => {
-      const errorCode = error.code
-      const errorMessage = error.message
-      console.log('errorMessage:' + errorCode + ' : ' + errorMessage)
+      // console.log('errorMessage:' + errorCode + ' : ' + errorMessage)
+      setError(error.message)
     })
   }
   return (
@@ -122,6 +122,7 @@ const Register = () => {
             >
               Continue
             </Button>
+            {error && <Text color={'white'}> Error: {error} </Text>}
           </Box>
           <Box alignItems={'center'}>
             <Text color={'erik.border'} fontSize={'xs'} fontWeight={'bold'}>

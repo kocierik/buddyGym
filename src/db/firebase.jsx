@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
-import { getFirestore, setDoc, doc } from 'firebase/firestore'
+import { getFirestore, setDoc, doc, getDoc } from 'firebase/firestore'
 
 import { getAnalytics } from 'firebase/analytics'
 // TODO: Add SDKs for Firebase products that you want to use
@@ -22,18 +22,26 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const firestore = getFirestore()
 
-export const createUserProfileDocument = async (user) => {
-  if (!user) return
-  console.log(user)
-  const createAt = new Date()
-  await setDoc(doc(firestore, 'users', user.id), {
-    uid: user.id,
-    email: user.email,
-    createAt: createAt,
-  })
-    .then(() => console.log('AGGIUNTO'))
-    .catch((error) => {
-      const messageCode = error.message
-      console.log(messageCode)
+export const createUserProfileDocument = async ({ uid, email }) => {
+  if (!uid) return
+
+  const userRef = doc(firestore, 'users', uid)
+  console.log(userRef)
+  // fetch document location
+  if (!userRef.id) {
+    const createAt = new Date()
+
+    await setDoc(doc(firestore, 'users', uid), {
+      uid: uid,
+      email: email,
+      createAt: createAt,
     })
+      .then(() => console.log('AGGIUNTO'))
+      .catch((error) => {
+        const messageCode = error.message
+        console.log(messageCode)
+      })
+  } else {
+    console.log('GIA ESISYTENTE')
+  }
 }
