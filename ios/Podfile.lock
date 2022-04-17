@@ -784,6 +784,9 @@ PODS:
   - RNFirebase (5.4.3):
     - Firebase/Core
     - React
+  - RNScreens (3.10.2):
+    - React-Core
+    - React-RCTImage
   - RNSVG (12.1.1):
     - React
   - RNVectorIcons (9.1.0):
@@ -834,6 +837,7 @@ DEPENDENCIES:
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
   - RNFirebase (from `../node_modules/react-native-firebase/ios`)
+  - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -943,6 +947,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/firestore"
   RNFirebase:
     :path: "../node_modules/react-native-firebase/ios"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNVectorIcons:
@@ -1011,6 +1017,7 @@ SPEC CHECKSUMS:
   RNFBAuth: 85b7ad91e3783dfde011702b2b747b1fd7be7234
   RNFBFirestore: 06d06485901708c3b2c8f569433058911a82c121
   RNFirebase: 723f5f6a88316c856f753f701c3233b851cf1f49
+  RNScreens: d6da2b9e29cf523832c2542f47bf1287318b1868
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNVectorIcons: 7923e585eaeb139b9f4531d25a125a1500162a0b
   Yoga: e6ecf3fa25af9d4c87e94ad7d5d292eedef49749

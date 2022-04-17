@@ -10,6 +10,7 @@ const Register = () => {
   const [password, setPassword] = React.useState('')
   const [error, setError] = React.useState('')
   const auth = getAuth()
+
   const signUp = async () => {
     try {
       const data = await createUserWithEmailAndPassword(
@@ -26,7 +27,9 @@ const Register = () => {
           console.log('errorMessage:' + errorCode + ' : ' + errorMessage)
           setError('Unknown error')
         })
-        .then(setError(''))
+        .then(() => {
+          setError('')
+        })
     } catch (error) {
       setName('')
       setPassword('')
@@ -113,7 +116,11 @@ const Register = () => {
               value={password}
             />
           </Box>
-          <Box alignItems={'center'}>
+          <Box
+            alignItems={'center'}
+            flexDir={'row'}
+            justifyContent={'space-evenly'}
+          >
             <Button
               w={'40%'}
               bg="erik.button"
@@ -122,13 +129,14 @@ const Register = () => {
             >
               Continue
             </Button>
+            <Button>Here login</Button>
+          </Box>
+          <Box alignItems={'center'}>
             {error && (
-              <Text color={'#eb3455'} mt={3}>
+              <Text color={'#eb3455'} mb={3}>
                 {error}
               </Text>
             )}
-          </Box>
-          <Box alignItems={'center'}>
             <Text color={'erik.border'} fontSize={'xs'} fontWeight={'bold'}>
               Or Sign Up Using
             </Text>
