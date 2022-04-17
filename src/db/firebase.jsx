@@ -30,11 +30,9 @@ const firestore = getFirestore()
 
 export const createUserProfileDocument = async (user) => {
   if (!user) return
-
   console.log(user)
   const createAt = new Date()
   const data = doc(collection(firestore, 'users'))
-
   await setDoc(data, { uid: data.id, email: user.email, createAt: createAt })
     .then(() => console.log('FUNZIONA'))
     .catch((e) => console.log(e))

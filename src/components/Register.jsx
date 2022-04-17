@@ -10,22 +10,28 @@ const Register = () => {
   const [password, setPassword] = React.useState('')
   const [error, setError] = React.useState('')
   const auth = getAuth()
-
   const signUp = async () => {
-    const dataUser = await createUserWithEmailAndPassword(
-      auth,
-      name,
-      password
-    ).catch(() => setError('Verify that the email is not already in use'))
-    // Signed in
-    console.log(dataUser)
+    try {
+      const data = await createUserWithEmailAndPassword(
+        auth,
+        name,
+        password
+      ).catch(() => setError('Verify that the email is not already in use'))
+      // Signed in
 
-    await createUserProfileDocument(dataUser.user).catch((error) => {
-      const errorCode = error.code
-      const errorMessage = error.message
-      console.log('errorMessage:' + errorCode + ' : ' + errorMessage)
-      setError('Unknown error')
-    })
+      await createUserProfileDocument(data.user)
+        .catch((error) => {
+          const errorCode = error.code
+          const errorMessage = error.message
+          console.log('errorMessage:' + errorCode + ' : ' + errorMessage)
+          setError('Unknown error')
+        })
+        .then(setError(''))
+    } catch (error) {
+      setName('')
+      setPassword('')
+      console.log(error)
+    }
   }
 
   return (
@@ -76,7 +82,7 @@ const Register = () => {
               }
               placeholder="Type your username"
               onChangeText={(e) => setName(e)}
-              defaultValue={name}
+              value={name}
             />
           </Box>
           <Box alignItems={'flex-start'}>
@@ -104,7 +110,7 @@ const Register = () => {
               }
               placeholder="Type your password"
               onChangeText={(e) => setPassword(e)}
-              defaultValue={password}
+              value={password}
             />
           </Box>
           <Box alignItems={'center'}>
