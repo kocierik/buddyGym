@@ -17,7 +17,7 @@ import { useContext } from 'react'
 import { loginContext } from '../provider/loginContext'
 
 const Sign = () => {
-  const [isLogin, setIsLogin] = React.useState()
+  const [isLogin, setIsLogin] = React.useState(true)
 
   return (
     <NativeBaseProvider theme={Theme}>

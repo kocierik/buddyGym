@@ -11,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = React.useState('')
   const signIn = () => {}
   const [isLogin, setIsLogin] = React.useContext(loginContext)
+
   return (
     <Stack
       flexDir={'column'}
@@ -100,7 +101,7 @@ const Login = () => {
               Continue
             </Button>
           </Box>
-          <Box alignItems={'center'} mt={4}>
+          <Box alignItems={'center'} mt={0}>
             <Text color={'erik.text'} fontSize={'xs'} fontWeight={'bold'}>
               Or Sign In Using
             </Text>
@@ -117,7 +118,7 @@ const Login = () => {
         <FontAwesome name="google" size={40} color="black" />
         <FontAwesome name="twitter-square" size={40} color="black" />
       </Box>
-      <Box alignItems={'center'} p={10}>
+      <Box alignItems={'center'} p={5}>
         <Text>
           Click here to{' '}
           <Text

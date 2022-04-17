@@ -1,11 +1,22 @@
-import { Box } from 'native-base'
+import { NativeBaseProvider, Text, Box } from 'native-base'
 import React from 'react'
+import Theme from '../../assets/colors'
 
 function Home() {
   return (
-    <Box justifyContent={'center'} alignItems={'center'}>
-      <Text>HomePage</Text>
-    </Box>
+    <NativeBaseProvider theme={Theme}>
+      <Box
+        display={'flex'}
+        flex={1}
+        height={'100%'}
+        width={'100%'}
+        bg={'erik.background'}
+      >
+        <Box justifyContent={'center'} alignItems={'center'}>
+          <Text color={'black'}>HomePage</Text>
+        </Box>
+      </Box>
+    </NativeBaseProvider>
   )
 }
 

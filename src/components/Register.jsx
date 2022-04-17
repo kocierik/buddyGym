@@ -1,16 +1,19 @@
-import React, { useContext } from 'react'
-import { Input, Icon, Stack, Button, Box, Text, Image, Link } from 'native-base'
+import React from 'react'
+import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../../assets/Allimages'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { createUserProfileDocument } from '../db/firebase'
 import { loginContext } from '../provider/loginContext'
+import { useNavigation } from '@react-navigation/native'
+
 const Register = () => {
   const [show, setShow] = React.useState(false)
   const [name, setName] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [error, setError] = React.useState('')
   const auth = getAuth()
+  const navigation = useNavigation()
 
   const [isLogin, setIsLogin] = React.useContext(loginContext)
 
@@ -32,9 +35,11 @@ const Register = () => {
         })
         .then(() => {
           setError('')
+          navigation.navigate('Home')
+          navigation.reset({ index: 0, routes: [{ name: 'Home' }] })
         })
     } catch (error) {
-      setName('')
+      // setName('')
       setPassword('')
       console.log(error)
     }
@@ -133,11 +138,6 @@ const Register = () => {
             </Button>
           </Box>
           <Box alignItems={'center'}>
-            {error && (
-              <Text color={'#eb3455'} mb={3}>
-                {error}
-              </Text>
-            )}
             <Text color={'erik.border'} fontSize={'xs'} fontWeight={'bold'}>
               Or Sign Up Using
             </Text>
@@ -154,7 +154,7 @@ const Register = () => {
         <FontAwesome name="google" size={40} color="black" />
         <FontAwesome name="twitter-square" size={40} color="black" />
       </Box>
-      <Box alignItems={'center'} p={10}>
+      <Box alignItems={'center'} p={5}>
         <Text>
           Click here to{' '}
           <Text
