@@ -1,24 +1,28 @@
 import { NativeBaseProvider, Text, Box, Button } from 'native-base'
-import React from 'react'
+import React, { useContext } from 'react'
 import Theme from '../../assets/colors'
 import { getAuth } from 'firebase/auth'
 import { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
-function Home() {
+import { userContext } from '../provider/userContext'
+const Home = () => {
+  const [user, setUser] = useContext(userContext)
   const auth = getAuth()
   const navigation = useNavigation()
 
-  console.log(auth)
+  console.log(user)
   const signOut = () => {
-    auth.signOut().then(() => console.log(auth))
-  }
-
-  useEffect(() => {
-    if (auth.currentUser == undefined) {
+    auth.signOut().then(() => {
+      console.log(auth)
+      setUser(null)
+      console.log(user)
       navigation.navigate('Sign')
       navigation.reset({ index: 0, routes: [{ name: 'Sign' }] })
-    }
-  }, [auth])
+    })
+  }
+  useEffect(() => {
+    setUser(auth.currentUser)
+  }, [])
 
   return (
     <NativeBaseProvider theme={Theme}>
