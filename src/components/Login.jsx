@@ -120,9 +120,13 @@ const Login = () => {
       <Box alignItems={'center'} p={10}>
         <Text>
           Click here to{' '}
-          <Link color={'blue'} onPress={() => setIsLogin(true)}>
+          <Text
+            color={'blue'}
+            onPress={() => setIsLogin(true)}
+            textDecorationLine={'underline'}
+          >
             Sign Up
-          </Link>
+          </Text>
         </Text>
       </Box>
     </Stack>

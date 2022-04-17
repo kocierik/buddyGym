@@ -157,9 +157,13 @@ const Register = () => {
       <Box alignItems={'center'} p={10}>
         <Text>
           Click here to{' '}
-          <Link color={'blue'} onPress={() => setIsLogin(false)}>
+          <Text
+            color={'blue'}
+            onPress={() => setIsLogin(false)}
+            textDecorationLine={'underline'}
+          >
             Sign in
-          </Link>
+          </Text>
         </Text>
       </Box>
     </Stack>
