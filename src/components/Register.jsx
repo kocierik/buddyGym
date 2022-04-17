@@ -14,7 +14,6 @@ const Register = () => {
   const [error, setError] = React.useState('')
   const auth = getAuth()
   const navigation = useNavigation()
-
   const [isLogin, setIsLogin] = React.useContext(loginContext)
 
   const signUp = async () => {
@@ -39,7 +38,7 @@ const Register = () => {
           navigation.reset({ index: 0, routes: [{ name: 'Home' }] })
         })
     } catch (error) {
-      // setName('')
+      setName('')
       setPassword('')
       console.log(error)
     }

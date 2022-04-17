@@ -15,12 +15,12 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Sign"
-        screenOptions={{ title: 'Home', headerBackVisible: false }}
+        screenOptions={{ title: 'buddyGym', headerBackVisible: false }}
       >
         <Stack.Group>
           <Stack.Screen name="Sign" component={Sign} />
           <Stack.Screen name="Register" component={Register} />
-          <Stack.Screen name="Profile" component={Login} />
+          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={Home} />
         </Stack.Group>
       </Stack.Navigator>
