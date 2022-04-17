@@ -13,8 +13,12 @@ import Register from '../components/Register'
 import Theme from '../../assets/colors'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import '../db/firebase'
+import { useContext } from 'react'
+import { loginContext } from '../provider/loginContext'
 
 const Sign = () => {
+  const [isLogin, setIsLogin] = React.useState()
+
   return (
     <NativeBaseProvider theme={Theme}>
       <Box
@@ -29,7 +33,9 @@ const Sign = () => {
           scrollEnabled={false}
         >
           <Box style={styles.content}>
-            <Register />
+            <loginContext.Provider value={[isLogin, setIsLogin]}>
+              {isLogin ? <Register /> : <Login />}
+            </loginContext.Provider>
           </Box>
         </KeyboardAwareScrollView>
       </Box>

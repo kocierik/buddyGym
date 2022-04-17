@@ -1,15 +1,18 @@
-import React from 'react'
-import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
+import React, { useContext } from 'react'
+import { Input, Icon, Stack, Button, Box, Text, Image, Link } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../../assets/Allimages'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { createUserProfileDocument } from '../db/firebase'
+import { loginContext } from '../provider/loginContext'
 const Register = () => {
   const [show, setShow] = React.useState(false)
   const [name, setName] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [error, setError] = React.useState('')
   const auth = getAuth()
+
+  const [isLogin, setIsLogin] = React.useContext(loginContext)
 
   const signUp = async () => {
     try {
@@ -106,7 +109,6 @@ const Register = () => {
                   marginLeft={3}
                   as={<AntDesign name={show ? 'unlock' : 'lock1'} />}
                   size={5}
-                  mr="2"
                   color="muted.400"
                   onPress={() => setShow(!show)}
                 />
@@ -129,7 +131,6 @@ const Register = () => {
             >
               Continue
             </Button>
-            <Button>Here login</Button>
           </Box>
           <Box alignItems={'center'}>
             {error && (
@@ -152,6 +153,14 @@ const Register = () => {
         <AntDesign name="facebook-square" size={40} color="black" />
         <FontAwesome name="google" size={40} color="black" />
         <FontAwesome name="twitter-square" size={40} color="black" />
+      </Box>
+      <Box alignItems={'center'} p={10}>
+        <Text>
+          Click here to{' '}
+          <Link color={'blue'} onPress={() => setIsLogin(false)}>
+            Sign in
+          </Link>
+        </Text>
       </Box>
     </Stack>
   )

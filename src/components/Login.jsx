@@ -1,15 +1,16 @@
 import React from 'react'
-import { Input, Icon, Stack, Button, Box, Text, Image } from 'native-base'
+import { Input, Icon, Stack, Button, Box, Text, Image, Link } from 'native-base'
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons'
 import images from '../../assets/Allimages'
+import { useContext } from 'react'
+import { loginContext } from '../provider/loginContext'
 
 const Login = () => {
   const [show, setShow] = React.useState(false)
   const [name, setName] = React.useState('')
   const [password, setPassword] = React.useState('')
-  // const auth = getAuth()
   const signIn = () => {}
-
+  const [isLogin, setIsLogin] = React.useContext(loginContext)
   return (
     <Stack
       flexDir={'column'}
@@ -79,7 +80,6 @@ const Login = () => {
                   marginLeft={3}
                   as={<AntDesign name={show ? 'unlock' : 'lock1'} />}
                   size={5}
-                  mr="2"
                   color="muted.400"
                   onPress={() => setShow(!show)}
                 />
@@ -100,7 +100,7 @@ const Login = () => {
               Continue
             </Button>
           </Box>
-          <Box alignItems={'center'}>
+          <Box alignItems={'center'} mt={4}>
             <Text color={'erik.text'} fontSize={'xs'} fontWeight={'bold'}>
               Or Sign In Using
             </Text>
@@ -113,24 +113,17 @@ const Login = () => {
         flexDir={'row'}
         justifyContent={'space-evenly'}
       >
-        <AntDesign
-          name="facebook-square"
-          size={40}
-          color="black"
-          style={{ marginTop: '10%' }}
-        />
-        <FontAwesome
-          name="google"
-          size={40}
-          color="black"
-          style={{ marginTop: '10%' }}
-        />
-        <FontAwesome
-          name="twitter-square"
-          size={40}
-          color="black"
-          style={{ marginTop: '10%' }}
-        />
+        <AntDesign name="facebook-square" size={40} color="black" />
+        <FontAwesome name="google" size={40} color="black" />
+        <FontAwesome name="twitter-square" size={40} color="black" />
+      </Box>
+      <Box alignItems={'center'} p={10}>
+        <Text>
+          Click here to{' '}
+          <Link color={'blue'} onPress={() => setIsLogin(true)}>
+            Sign Up
+          </Link>
+        </Text>
       </Box>
     </Stack>
   )
