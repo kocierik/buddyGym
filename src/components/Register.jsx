@@ -7,7 +7,32 @@ import { createUserProfileDocument } from '../db/firebase'
 import { loginContext } from '../provider/loginContext'
 import { useNavigation } from '@react-navigation/native'
 
+import * as WebBrowser from 'expo-web-browser'
+import * as Google from 'expo-auth-session/providers/google'
+
 const Register = () => {
+  WebBrowser.maybeCompleteAuthSession()
+  const [accessToken, setAccessToken] = React.useState()
+  const [userInfo, setUserInfo] = React.useState()
+  const [message, setMessage] = React.useState()
+
+  const [request, response, promptAsync] = Google.useAuthRequest({
+    androidClientId:
+      '10597389565-ufinq42ln6rfn8f2paakium237qbjoc8.apps.googleusercontent.com',
+    iosClientId:
+      '10597389565-klgfnuh6olrmej6msu02uiv3gfh477nd.apps.googleusercontent.com',
+    expoClientId:
+      '694235095257-fkbf1u81sm5ii76om74j5b7h8u4v2m7a.apps.googleusercontent.com',
+    webClientId:
+      '10597389565-c06231gc0l1a2iegv631qvae40mkq59d.apps.googleusercontent.com',
+  })
+
+  React.useEffect(() => {
+    if (response?.type === 'success') {
+      const { authentication } = response
+    }
+  }, [response])
+
   const [show, setShow] = React.useState(false)
   const [name, setName] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -150,7 +175,14 @@ const Register = () => {
         justifyContent={'space-evenly'}
       >
         <AntDesign name="facebook-square" size={40} color="black" />
-        <FontAwesome name="google" size={40} color="black" />
+        <FontAwesome
+          name="google"
+          size={40}
+          color="black"
+          onPress={() => {
+            promptAsync()
+          }}
+        />
         <FontAwesome name="twitter-square" size={40} color="black" />
       </Box>
       <Box alignItems={'center'} p={5}>

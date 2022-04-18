@@ -5,6 +5,7 @@ import { getAuth } from 'firebase/auth'
 import { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { userContext } from '../provider/userContext'
+
 const Home = () => {
   const [user, setUser] = useContext(userContext)
   const auth = getAuth()

@@ -4,8 +4,12 @@
     "slug": "buddyGym",
     "version": "1.0.0",
     "assetBundlePatterns": ["**/*"],
+    "scheme": "redirect",
     "android": {
       "googleServicesFile": "./google-services.json"
+    },
+    "ios": {
+      "googleServicesFile": "./ios/GoogleService-Info.plist"
     },
     "plugins": ["@react-native-firebase/app"]
   }
