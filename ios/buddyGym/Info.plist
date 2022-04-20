@@ -79,6 +79,12 @@
 					<string>redirect</string>
 				</array>
 			</dict>
+			<dict>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>org.name.buddygym</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 </plist>

@@ -17,21 +17,35 @@ const Register = () => {
   const [message, setMessage] = React.useState()
 
   const [request, response, promptAsync] = Google.useAuthRequest({
+    expoClientId:
+      '10597389565-m0bqlbpbgh6ug4n470ua57rsee3m4r48.apps.googleusercontent.com',
     androidClientId:
       '10597389565-ufinq42ln6rfn8f2paakium237qbjoc8.apps.googleusercontent.com',
     iosClientId:
       '10597389565-klgfnuh6olrmej6msu02uiv3gfh477nd.apps.googleusercontent.com',
-    expoClientId:
-      '694235095257-fkbf1u81sm5ii76om74j5b7h8u4v2m7a.apps.googleusercontent.com',
     webClientId:
       '10597389565-c06231gc0l1a2iegv631qvae40mkq59d.apps.googleusercontent.com',
   })
 
   React.useEffect(() => {
+    setMessage(JSON.stringify(response))
     if (response?.type === 'success') {
-      const { authentication } = response
+      setAccessToken(response.authentication.accessToken)
     }
   }, [response])
+
+  async function getUserData() {
+    let userInfoResponse = await fetch(
+      'https://www.googleapis.com/userinfo/v2/me',
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    )
+
+    userInfoResponse.json().then((data) => {
+      setUserInfo(data)
+    })
+  }
 
   const [show, setShow] = React.useState(false)
   const [name, setName] = React.useState('')
